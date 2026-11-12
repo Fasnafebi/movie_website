@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }} Movies</title>
+</head>
+<body>
+
+    <h1>{{ category.name }} Movies</h1>
+
+    {% for movie in movies %}
+
+        <h3>{{ movie.title }}</h3>
+
+        <img src="{{ movie.poster.url }}" width="200">
+
+        <p>{{ movie.description }}</p>
+
+        <p>Rating: {{ movie.rating }}</p>
+
+        <p>Actors: {{ movie.actors }}</p>
+
+        <a href="{{ movie.trailer_url }}" target="_blank">
+            Watch Trailer
+        </a>
+
+        <hr>
+
+    {% empty %}
+        <p>No movies found in this category.</p>
+    {% endfor %}
+
+    <a href="{% url 'movie_list' %}">Back to Home</a>
+
+</body>
+</html>

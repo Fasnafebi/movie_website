@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile</title>
+</head>
+<body>
+
+    <h2>My Profile</h2>
+
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Update Profile</button>
+    </form>
+
+    <br>
+
+    <a href="{% url 'movie_list' %}">Back to Home</a>
+
+</body>
+</html>
